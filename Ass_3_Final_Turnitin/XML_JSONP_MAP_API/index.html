@@ -1,0 +1,123 @@
+
+<!--(Lynda.com - from LinkedIn, 2017)-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Friends XML and Map API</title>
+    <script type="text/javascript">
+    function friendsList()
+    {
+        // get references to the  xml data of friends
+				var xmlData = document.getElementById("xmldata1");
+				var myFriends = xmlData.getElementsByTagName("displayFriends");
+		
+				// for each friend, loop over its tags and create a new <div> to
+				// each card along with the information for all the fields
+				for (var i=0; i < myFriends.length; i++) {
+				    var currentFriends = myFriends[i]; // store a reference to the current <displayFriends>
+				    
+				    // make a new <div> for the whole card
+				    var newFriends = document.createElement("div");
+				    newFriends.setAttribute("className","displayFriends");
+				    newFriends.setAttribute("class","displayFriends");
+				    
+				    // now create a <div> for the name
+				    var newName = document.createElement("div");
+				    newName.setAttribute("className","Name");
+				    newName.setAttribute("class","Name");
+				    var nameStr = document.createTextNode(currentFriends.getElementsByTagName("Name")[0].firstChild.data);
+				    newName.appendChild(nameStr);
+				    newFriends.appendChild(newName);
+				    
+				    // create separate <divs> for the phones		    
+				    var phones = currentFriends.getElementsByTagName("phone");
+				    var newPhone;
+				    for (var j=0; j < phones.length; j++) {
+				        newPhone = document.createElement("div");
+		    		    newPhone.setAttribute("className","phone");
+			    	    newPhone.setAttribute("class","phone");
+			    	    var labelStr = currentFriends.getElementsByTagName("phone")[j].getAttribute("type") + ": ";
+			    	    var phoneStr = document.createTextNode(labelStr + currentFriends.getElementsByTagName("phone")[j].firstChild.data);
+			    	    newPhone.appendChild(phoneStr);
+			    	    newFriends.appendChild(newPhone);
+				    }
+				    
+				    // create a <div> for the email
+				    var newEmail = document.createElement("div");
+				    newEmail.setAttribute("className","email");
+				    newEmail.setAttribute("class","email");
+				    var emailStr = document.createTextNode("email: " + currentFriends.getElementsByTagName("email")[0].firstChild.data);
+				    newEmail.appendChild(emailStr);
+				    newFriends.appendChild(newEmail);
+		
+		            // now add the new <div> containing the card info to the web page
+				    document.getElementsByTagName("body")[0].appendChild(newFriends);
+				}
+
+    }
+    
+    window.addEventListener("load",friendsList);
+    </script>
+    <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+<xml id="xmldata1" style="display:none">
+<!--data changed to my own data using correct XML format-->
+	<displayFriends>
+		<Name>Wayne Casey</Name>
+		<phone type="mobile">01282 756493</phone>
+		<phone type="work">0800 473829</phone>
+	
+		<email>wayne@wayne.com</email>
+	</displayFriends>
+
+<!--This is my own structured data-->
+	
+<displayFriends>
+		<Name>Katie Ferguson</Name>
+		<phone type="mobile">01200 484736</phone>
+		<phone type="work">07869 373649</phone>
+		<email>katie@katie.com</email>
+		</displayFriends>
+
+		<displayFriends>
+		<Name>Danielle Bennett</Name>
+		<phone type="mobile">03844 759473</phone>
+		<phone type="work">02938 574893</phone>
+		<email>danielle@danielle.com</email>
+		</displayFriends>
+
+		<displayFriends>
+		<Name>Tia Jade</Name>
+		<phone type="mobile">06985 383846</phone>
+		<phone type="work">04857 475093</phone>
+		<email>tia@tia.com</email>
+		</displayFriends>
+</xml>
+<h1>Google Map - Assignment 3 JSONP</h1>
+<h2>
+	The Google Map is called from Google using API key obtained from Google.  I have set the coordinates of the map so that it opens on Burnley College/UCLAN.
+</h2>
+<!--create a container (div) for the map to sit in-->
+<div id="googleMap" style="width:100%;height:250px;"></div>
+<script>
+//creating a function
+function myMap() {
+var mapItem= {
+	//the map co-ordinates for burnley college using latitude and longitude - I have used the coordinate for UCLAN Burnley
+    center:new google.maps.LatLng(53.793547,-2.248714),
+    //ensuring the map zooms in to the location and not just on a full map of uk
+    zoom:15,
+};
+//accessing the inner html element for googlemap using variable mapItem
+var map=new google.maps.Map(document.getElementById("googleMap"),mapItem);
+}
+</script>
+<!--my api key and the url of the googlemap I want-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcqkByBEHfy9Sx8hhMfH4-0iqteN1_VC4&callback=myMap"></script>
+
+</h2>
+<h3>This is my XML data</h3>
+</body>
+</html>
+<!--(Lynda.com - from LinkedIn, 2017)-->

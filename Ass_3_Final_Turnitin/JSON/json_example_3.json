@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Ivy",
+    "species" : "cat",
+    "foods": {
+      "likes": ["ham", "cat food"],
+      "dislikes": ["wotsits"]
+    }
+  },
+  {
+    "name": "Rosie",
+    "species" : "dog",
+    "foods": {
+      "likes": ["biscuits", "bones"],
+      "dislikes": ["bread"]
+    }
+  },
+  {
+    "name": "Colin",
+    "species" : "tortoise",
+    "foods": {
+      "likes": ["cat food"],
+      "dislikes": ["sharks"]
+    }
+  }
+]
+//(YouTube, 2017)

@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<corporate>
+	<employee>
+		<Name>Wayne Casey</Name>
+		<age>35</age>
+		<company>uclan</company>
+
+	</employee>
+	
+<employee>
+	<Name>Katie Ferguson</Name>
+		<age>30</age>
+		<company>uclan</company>	
+	</employee>
+	
+	<employee>
+	<Name>Danielle Bennett</Name>
+		<age>21</age>
+		<company>BBC</company>	
+	</employee>
+	
+	<employee>
+	<Name>Tia Jenneys</Name>
+		<age>21</age>
+		<company>BBC</company>	
+	</employee>
+	</corporate>
